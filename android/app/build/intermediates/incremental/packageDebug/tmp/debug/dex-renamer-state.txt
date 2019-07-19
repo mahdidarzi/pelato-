@@ -1,0 +1,4 @@
+#Thu Jan 24 18:23:44 IRST 2019
+base.0=E\:\\rn-ps\\plato\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

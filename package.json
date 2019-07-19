@@ -1,0 +1,30 @@
+{
+  "name": "plato",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.1.5",
+    "native-base": "^2.8.1",
+    "react": "16.6.0-alpha.8af6728",
+    "react-native": "0.57.4",
+    "react-native-animated-form": "0.0.7",
+    "react-native-image-slider": "^2.0.3",
+    "react-native-linear-gradient": "^2.5.3",
+    "react-native-moment-jalaali": "^0.1.0",
+    "react-native-persian-calendar-picker": "^2.2.2",
+    "react-native-router-flux": "^4.0.6"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.49.1",
+    "react-test-renderer": "16.6.0-alpha.8af6728"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
