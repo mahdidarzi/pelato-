@@ -12,7 +12,6 @@ import rooms from "./rooms";
 import date from "./date";
 import factor from "../pages/factor";
 import wv from "../pages/wv"; 
-
 import goodest_centers from "../pages/goodest_centers"; 
 import wallet from "../pages/wallet"; 
 import DrawerLayout from "../pages/DrawerLayout"; 
@@ -22,21 +21,10 @@ import as from "../pages/as";
 import lightbox from "../pages/lightbox"; 
 import professionnal_Search from "../pages/professionnal_Search";
 import test from "../pages/test";
- 
 I18nManager.forceRTL(true);
-
-
-
-
-
-
-
-
-export default class App extends Component {
-  
+export default class App extends Component { 
   render() {
     return (
-    
      <Router >
              <Drawer
       contentComponent={DrawerLayout}
@@ -44,13 +32,12 @@ export default class App extends Component {
   >        
          <Scene key='lightboxMM'  lightbox>
     <Scene key='root' modal hideNavBar>
-    <Scene key='splash' component={splash} initial/>
-    <Scene key='test' component={test} />
+    <Scene key='splash' component={splash} />
+    <Scene key='test' component={test} initial/>
     <Scene key='login2' component={login2}/>
     <Scene key='register' component={register} />
     <Scene key='login' component={login}  />
     <Scene key='home' component={home}  />
-   
        <Scene key='part1' component={part1}  />
        <Scene key='rooms' component={rooms}  />
        <Scene key='date' component={date}  />
@@ -67,30 +54,26 @@ export default class App extends Component {
   </Scene>
           </Drawer>
        </Router>
-
-
-       
-   
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  container : {
+    flex : 1,
+    justifyContent : 'center',
+    alignItems : 'center',
+    backgroundColor : '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  welcome : {
+    fontSize : 20,
+    textAlign : 'center',
+    margin : 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  instructions : {
+    textAlign : 'center',
+    color : '#333333',
+    marginBottom : 5,
   },
 });
 
