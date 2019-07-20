@@ -22,10 +22,10 @@ import as from "../pages/as";
 import lightbox from "../pages/lightbox"; 
 import professionnal_Search from "../pages/professionnal_Search";
 import test from "../pages/test";
- //I18nManager have to test that performance
+ 
 I18nManager.forceRTL(true);
 
-// Actions.factor({name:tem.room_timings[0].price})
+
 
 
 
@@ -38,39 +38,6 @@ export default class App extends Component {
     return (
     
      <Router >
-              
-              {/* <Drawer
-        // hideNavBar='true
-//every thing use in a special place dont pass of everything with simple sight
-      key="drawer"
-      contentComponent={DrawerLayout}
-      drawerPosition="right"
-  >        
-          
-       <Scene key='root' hideNavBar>
-       <Scene key='goodest_centers' component={goodest_centers}/>
-       <Scene key='register' component={register}/>
-       <Scene key='login' component={login}  />
-       <Scene key='login2' component={login2}  />
-       <Scene key='home' component={home}  />
-       <Scene key='part1' component={part1}  />
-       <Scene key='rooms' component={rooms}  />
-       <Scene key='date' component={date}  />
-       <Scene key='factor' component={factor}  />
-       <Scene key='splash' component={splash}initial  />
-       <Scene key='wv' component={wv}  /> 
-       <Scene key='vebview' component={vebview}  />
-       <Scene key='wallet' component={wallet}  /> 
-       <Scene key='unique_code' component={unique_code}/>  
-       <Scene key='subscribe' component={subscribe}/> 
-       <Scene key='as' component={as} /> 
-         </Scene>
-         <Lightbox>  
-         <Scene key='lightbox' component={lightbox} /> 
-         
-         </Lightbox>
-         </Drawer>
-          */}
              <Drawer
       contentComponent={DrawerLayout}
       drawerPosition="right"
