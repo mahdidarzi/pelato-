@@ -3,6 +3,7 @@ import { AsyncStorage , FlatList ,StyleSheet,Image,TouchableOpacity,BackHandler,
 import {Actions} from "react-native-router-flux";
 import {Container, Header, Right, Button, Content, Text, Left, Icon , View , Spinner,Input,Item,CardItem,Card,Body} from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
+import headerStyles from './../assets/styles/header';
 export default class home extends Component {
 
   constructor(props) {
@@ -144,17 +145,6 @@ title : '  تست کالباس و پنیر',
 body : 'ابتدا یک قاشق سوپخوری هویج ریز و پخته شده را با یک قاشق سیب زمینی پخته و خرد شده ، یک قاشق پنیر پیتزا ، یک عدد تخم مرغ و نمک و فلفل به میزان دلخواه  مخلوط  کنید و در ظرف را بگذارید تا مواد خودش را بگیرد.صبحانه شما همراه با دو عدد نان تست  ودو  ورق کالباس آماده سرو می باشد. '
 },];
 }
-async componentWillMount() {
-     
-      //TEMP
-      // this.getProductRequest();
-      // this.print();
-      // AsyncStorage.getItem('apiToken' , (error , apiToken) => this.setState({ apiToken }))
-      // alert(apiToken)
-
-}
- 
-
 
   render() {
     if (this.state.loading==true) {
@@ -166,25 +156,36 @@ async componentWillMount() {
     }
     return (
         <Container style={{ backgroundColor : '#2d3436'}}>
-        <Header   style={{ backgroundColor : '#34495e'}} androidStatusBarColor="#2c3e50" iosBarStyle="light-content">
-                       <Left style={{marginRight:10,marginLeft:5}}>
-                        <Icon  name="md-menu" onPress={() => Actions.drawerOpen() } style={{ color : 'white' , fontWeight : 500,fontSize:35,}}/>
-                    </Left> 
-                    <Left style={{marginRight:30,marginLeft:-60}}>
-                    <Image  source={require('./../assets/image/pelatos.png')}  style={styles.backgroundImage}/>
-                    </Left> 
-                    {/* <Right style={{marginLeft:10}}>
-                  <Text style={{color:'white',fontSize:14}}> پنل کاربری پلاتو</Text>
-                    </Right>  */}
-                       <Body style={{marginRight:0,marginLeft:-10}}><Text style={{color:'white',fontSize:22}}> پنل کاربری پلاتو</Text></Body>
-                    <Left style={{marginLeft:5,marginRight:-20}}>
-                          <View  style={{ backgroundColor : '#607D8B',width:40,height:40,borderRadius:20,marginTop:3,alignItems:'center'}}>
-                   <Icon  name='person'   style={{marginTop:5,color:'#00BCD4'}}/>
-                       </View>
-                    </Left> 
-                      
-                </Header>
-      {/* <Header searchBar style={{ backgroundColor : '#34495e',marginLeft:100}}> */}
+          
+          <Header   style = {headerStyles.header} androidStatusBarColor="#2c3e50" iosBarStyle="light-content">
+
+<Left style={{marginRight:10,marginLeft:5}}>
+
+ <Icon  name="md-menu" onPress={() => Actions.drawerOpen() } style={headerStyles.drawer}/>
+
+</Left> 
+
+<Left style={headerStyles.left1}>
+
+<Image  source={require('./../assets/image/pelatos.png')}/>
+
+</Left> 
+
+<Body style={headerStyles.body}><Text style={{color:'white',fontSize:22}}> پنل کاربری پلاتو</Text></Body>
+
+<Left style={headerStyles.left2}>
+
+   <View  style={headerStyles.personIconView}>
+
+<Icon  name='person'   style={headerStyles.personIcon}/>
+
+</View>
+
+</Left> 
+
+</Header>
+
+    
       <View style={{marginTop:10,marginBottom:10}}>
          <Item rounded style={{backgroundColor:'white',height:35,padding:5,width:250,marginLeft:60,marginRight:60}}>
           <Icon  name="ios-search" />

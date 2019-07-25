@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Item, Icon,Container,Header,Content,Button,Left,Right,Body,FooterTab,Footer} from 'native-base';
 import {Image,AsyncStorage,TextInput,StyleSheet,WebView} from "react-native";
-
+import headerStyles from './../assets/styles/header';
 import { Actions } from 'react-native-router-flux';
 
 export default class wallet extends React.Component {
@@ -28,24 +28,35 @@ export default class wallet extends React.Component {
     render() {
         return (
             <Container style={{ backgroundColor : '#2d3436'}} >
-                 <Header   style={{ backgroundColor : '#34495e'}} androidStatusBarColor="#2c3e50" iosBarStyle="light-content">
-                       <Left style={{marginRight:10,marginLeft:5}}>
-                        <Icon  name="md-menu" onPress={() => Actions.drawerOpen() } style={{ color : 'white' , fontWeight : 500,fontSize:35,}}/>
-                    </Left> 
-                    <Left style={{marginRight:30,marginLeft:-60}}>
-                    <Image  source={require('./../assets/image/pelatos.png')} />
-                    </Left> 
-                    {/* <Right style={{marginLeft:10}}>
-                  <Text style={{color:'white',fontSize:14}}> پنل کاربری پلاتو</Text>
-                    </Right>  */}
-                       <Body style={{marginRight:0,marginLeft:-10}}><Text style={{color:'white',fontSize:22}}> پنل کاربری پلاتو</Text></Body>
-                    <Left style={{marginLeft:5,marginRight:-20}}>
-                          <View  style={{ backgroundColor : '#607D8B',width:40,height:40,borderRadius:20,marginTop:3,alignItems:'center'}}>
-                   <Icon  name='person'   style={{marginTop:5,color:'#00BCD4'}}/>
-                       </View>
-                    </Left> 
-                      
-                </Header>
+
+                <Header   style = {headerStyles.header} androidStatusBarColor="#2c3e50" iosBarStyle="light-content">
+
+<Left style={{marginRight:10,marginLeft:5}}>
+
+ <Icon  name="md-menu" onPress={() => Actions.drawerOpen() } style={headerStyles.drawer}/>
+
+</Left> 
+
+<Left style={headerStyles.left1}>
+
+<Image  source={require('./../assets/image/pelatos.png')}/>
+
+</Left> 
+
+<Body style={headerStyles.body}><Text style={{color:'white',fontSize:22}}> پنل کاربری پلاتو</Text></Body>
+
+<Left style={headerStyles.left2}>
+
+   <View  style={headerStyles.personIconView}>
+
+<Icon  name='person'   style={headerStyles.personIcon}/>
+
+</View>
+
+</Left> 
+
+</Header>
+
                    <Content>
                       
                    <Text style={{justifyContent:'center',alignItems:'center',borderWidth:1,borderColor:'green'}}>

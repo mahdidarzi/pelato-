@@ -3,6 +3,7 @@ import { AsyncStorage , FlatList ,StyleSheet,Image,TouchableOpacity,ScrollView} 
 import {Container, Header, Right, Button, Content, Text, Left, Icon , View , Spinner,Input,Item,Body} from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import ImageSlider from 'react-native-image-slider';
+import headerStyles from './../assets/styles/header';
 var moment = require('moment-jalaali')
 moment().format('jYYYY/jM/jD');
 export default class rooms extends React.Component {
@@ -106,24 +107,33 @@ export default class rooms extends React.Component {
       return (
        <Container style={{ backgroundColor : '#34495e'}}>
          
-         <Header   style={{ backgroundColor : '#34495e'}} androidStatusBarColor="#2c3e50" iosBarStyle="light-content">
-                       <Left style={{marginRight:10,marginLeft:5}}>
-                        <Icon  name="md-menu" onPress={() => Actions.drawerOpen() } style={{ color : 'white' , fontWeight : 500,fontSize:35,}}/>
-                    </Left> 
-                    <Left style={{marginRight:30,marginLeft:-60}}>
-                    <Image  source={require('./../assets/image/pelatos.png')}  style={styles.backgroundImage}/>
-                    </Left> 
-                    {/* <Right style={{marginLeft:10}}>
-                  <Text style={{color:'white',fontSize:14}}> پنل کاربری پلاتو</Text>
-                    </Right>  */}
-                       <Body style={{marginRight:0,marginLeft:-10}}><Text style={{color:'white',fontSize:22}}> پنل کاربری پلاتو</Text></Body>
-                    <Left style={{marginLeft:5,marginRight:-20}}>
-                          <View  style={{ backgroundColor : '#607D8B',width:40,height:40,borderRadius:20,marginTop:3,alignItems:'center'}}>
-                   <Icon  name='person'   style={{marginTop:5,color:'#00BCD4'}}/>
-                       </View>
-                    </Left> 
-                      
-                </Header>
+         <Header   style = {headerStyles.header} androidStatusBarColor="#2c3e50" iosBarStyle="light-content">
+
+<Left style={{marginRight:10,marginLeft:5}}>
+
+ <Icon  name="md-menu" onPress={() => Actions.drawerOpen() } style={headerStyles.drawer}/>
+
+</Left> 
+
+<Left style={headerStyles.left1}>
+
+<Image  source={require('./../assets/image/pelatos.png')}/>
+
+</Left> 
+
+<Body style={headerStyles.body}><Text style={{color:'white',fontSize:22}}> پنل کاربری پلاتو</Text></Body>
+
+<Left style={headerStyles.left2}>
+
+   <View  style={headerStyles.personIconView}>
+
+<Icon  name='person'   style={headerStyles.personIcon}/>
+
+</View>
+
+</Left> 
+
+</Header>
                 
                 
                 
