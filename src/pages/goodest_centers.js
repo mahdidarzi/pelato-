@@ -4,6 +4,7 @@ import {Container, Header, Right, Button, Content, Text, Left, Icon , View , Spi
 import {Actions,Drawer } from 'react-native-router-flux';
 import ImageSlider from 'react-native-image-slider';
 import headerStyles from './../assets/styles/header';
+import showCenters from './../assets/styles/showCenters'
 
 export default class goodest_centers extends React.Component {
     constructor(props){
@@ -135,106 +136,83 @@ handleBackButton() {
                     </Left> 
                       
                 </Header>
-                
-             {this.state.show_search==1?<Text Style={{color:'white'}}> مرکز یافت نشد</Text>:null}
-             {/* <TouchableOpacity style={{width:47,height:70,flexDirection:'row',backgroundColor:'white',flexWrap:'nowrap',}}><Text style={{marginLeft:10}}>{1000/10}</Text></TouchableOpacity> */}
-             <View style={{alignItems:'center',marginTop:25,height:5,marginLeft:40,marginRight:40}}>
-             <Item style={{height:35,width:200,padding:5,}} rounded style={{backgroundColor:'white'}}>
-          <Icon  name="ios-search" />
-          <Input style={{height:35,width:250,  alignItems: 'center',padding:5}} onChangeText={text => this.searchFilterFunction(text)} placeholder='جستحوی مرکز'  value={this.state.value}/>
-        </Item>
-            
-                        </View>
 
-                        {console.log(this.state.goodest_centers)}
-
-                <FlatList style={{marginTop:50}}
+                <FlatList 
 
                    ListEmptyComponent={() =>this.state.show_spiner==0?<Spinner/>:null}
+
                    ListFooterComponent={this.state.loading?null:< Spinner />}
+
                 ListFooterComponent={this.renderFooter.bind(this)}
+
                    refreshing={this.state.refreshing}
+
                    onRefresh={this.handleRefresh.bind(this)}
+
                    onEndReached={this.handleLoadMore.bind(this)}
+
                    onEndReachedThreshold={0.7}
+
                     data={this.state.goodest_centers}
+
                     keyExtractor={(item) => item.id.toString()}
+
                   renderItem={({item})=>
-                //   <TouchableOpacity onPress={()=>Actions.rooms({id:item.id})}>
-                
-                    <View key={item.id} style={styles.container}>
-                    {/* <Image source={{uri:item.images.length==0?null:item.images[0].picture}} style={styles.image} /> */}
-                    <View style={[styles.buttonView,{marginLeft:45,marginRight:45,marginBottom:5,marginTop:5}]}>
-                  <Text style={{color: '#fff',fontSize:18,margin:-8, }}>برترین مراکز</Text>
+ 
+                    <View key={item.id} style={showCenters.renderItemContainer}>
+                   
+                    <View style={showCenters.goodestCentersBoxView}>
+
+                  <Text style={showCenters.goodestCentersBox}>برترین مراکز</Text>
+                  
               </View>
-<View style={{  borderWidth: 3,
-        borderColor:'white',
-        borderRadius:8,
-    }}>
-     
-    {/* { item.images.map((data) => {
-                         
-                           
-                          return <ImageSlider  style={styles.image} images={[
-                      
-                            data.picture
-                          
 
-                                ]}
-                                             autoPlayWithInterval={2000}/>
-                         
-                        })} */}
+                <View style = {showCenters.imageSliderView}>
+
                         {this._show_image_slider( item.images )}
-                    {/* <ImageSlider  style={styles.image} images={[
-                      
-                        // item.images.length==0?console.log('d'):item.images[0].picture,
-                        // item.images.length<=1?console.log('d'):item.images[1].picture, 
-                        // item.images.length<=2?console.log('d'):item.images[2].picture, 
+                  
+                        </View>
 
-                        //                                item.images.length==0?console.log('d'):item.images[0].picture,
-                        // item.images.length<=1?console.log('d'):item.images[1].picture, 
-                        // item.images.length<=2?console.log('d'):item.images[2].picture, 
-                      //   item.images.map((data) => {
-                         
-                      //     data.picture[1]
-                        
-                      //  })
-                            ]}
-                                         autoPlayWithInterval={2000}/> */}
-                                         </View>
                     <View key={item.id} style={{ padding : 10 , }}>
-        
-                         {/* <Image source={{uri:item.images[0]}} style={styles.image} /> */}
-                         <Text note numberOfLines={2} style={[styles.body,{marginLeft:120,marginRight:120,color:'#00cec9',fontSize:16}]}>{item.name}</Text>
-                         <Text note numberOfLines={2} style={styles.body}>نوع مرکز:پلاتو</Text>
-                         <Text note  style={styles.body}> تعداد اتاق:{item.rooms.length}</Text>
-                         <ScrollView style={styles.property}>
-                         <Text style={[styles.body,{color:'white'}]}>ویژگی ها</Text>
-                         <View style={{flexDirection:'row'}}>
-                        {item.center_attribute.length>=1?<Text style={styles.text_pro}>{item.center_attribute[0].name}</Text>:null}
-                        {item.center_attribute.length>=2?<Text style={styles.text_pro}>{item.center_attribute[1].name}</Text>:null}
-                        {item.center_attribute.length>=3?<Text style={styles.text_pro}>{item.center_attribute[2].name}</Text>:null}
-                        {item.center_attribute.length>=4?<Text style={styles.text_pro}>{item.center_attribute[3].name}</Text>:null}
-                        {item.center_attribute.length>=5?<Text style={styles.text_pro}>{item.center_attribute[4].name}</Text>:null}
+
+                         <Text note numberOfLines={2} style = {[showCenters.centerNmae,{fontSize:18,left:120,color:'cyan'}]} >{item.name}</Text>
+                         <Text note numberOfLines={2} style = {showCenters.textStyle} >نوع مرکز:پلاتو</Text>
+                         <Text note  style = {showCenters.textStyle} > تعداد اتاق:{item.rooms.length}</Text>
+
+                         <ScrollView style = {showCenters.centerProperties} >
+
+                         <Text style = {[showCenters.textStyle.body,{color:'white'}]} >ویژگی ها</Text>
+
+                         <View style = {{flexDirection:'row'}} >
+
+                        {item.center_attribute.length >= 1? <Text style = {showCenters.centerProperties} > {item.center_attribute[0].name} </Text> : null}
+                        {item.center_attribute.length >=2 ? <Text style = {showCenters.centerProperties} > {item.center_attribute[1].name} </Text> : null}
+                        {item.center_attribute.length >=3 ? <Text style = {showCenters.centerProperties} > {item.center_attribute[2].name} </Text> : null}
+                        {item.center_attribute.length >=4 ? <Text style = {showCenters.centerProperties} > {item.center_attribute[3].name} </Text> : null}
+                        {item.center_attribute.length >=5 ? <Text style = {showCenters.centerProperties} > {item.center_attribute[4].name} </Text> : null}
+
                          </View>
+
                          <View style={{flexDirection:'row'}}>
-                         {item.center_attribute.length>=6?<Text style={styles.text_pro}>{item.center_attribute[5].name}</Text>:null}
-                         {item.center_attribute.length>=7?<Text style={styles.text_pro}>{item.center_attribute[6].name}</Text>:null}
-                         {item.center_attribute.length>=8?<Text style={styles.text_pro}>{item.center_attribute[7].name}</Text>:null}
-                         {item.center_attribute.length>=9?<Text style={styles.text_pro}>{item.center_attribute[8].name}</Text>:null}
-                         {item.center_attribute.length>=10?<Text style={styles.text_pro}>{item.center_attribute[9].name}</Text>:null}
+
+                         {item.center_attribute.length >=6 ? <Text style={showCenters.centerProperties} > {item.center_attribute[5].name} </Text> : null}
+                         {item.center_attribute.length >=7 ? <Text style={showCenters.centerProperties} > {item.center_attribute[6].name} </Text> : null}
+                         {item.center_attribute.length >=8 ? <Text style={showCenters.centerProperties} > {item.center_attribute[7].name} </Text> : null}
+                         {item.center_attribute.length >=9 ? <Text style={showCenters.centerProperties} > {item.center_attribute[8].name} </Text> : null}
+                         {item.center_attribute.length >=10 ? <Text style={showCenters.centerProperties} > {item.center_attribute[9].name} </Text> : null}
+
                          </View>
 
                          </ScrollView>
                          
-                         <Text note style={styles.body}>{item.address}</Text>
-                         {/* <Text note style={styles.body}>{item.description}</Text> */}
-                         <TouchableOpacity onPress={()=>Actions.date({id:item.id,description:item.description})}  style={styles.reserve}>
-                            <Text style={{color: '#fff',alignItems:'center',fontSize:16,margin:-8}}>مشاهده و رزرو مرکز</Text>
+                         <Text note style={showCenters.textStyle}>{item.address}</Text>
+                      
+                         <TouchableOpacity onPress={()=>Actions.date({id:item.id,description:item.description})}  style={showCenters.ButtonForReserve}>
+
+                            <Text style={showCenters.testsButtonForReserve}>مشاهده و رزرو مرکز</Text>
+
                         </TouchableOpacity>
-                  
-                         {/* <Text note numberOfLines={2} style={{color:'yellow'}}>{item.images.length==0?null:item.images.length}</Text> */}
-                        
+                      
                     </View>
              
                 </View>
@@ -276,9 +254,11 @@ handleBackButton() {
         array_images.push(images[i].picture);
       }
       console.log(array_images);
+      
       return(
 
-         <ImageSlider  style={styles.image} images={array_images}
+         <ImageSlider  style = {showCenters.imageSlider} images={array_images}
+
                                          autoPlayWithInterval={2000}/> 
 
       )
@@ -419,90 +399,3 @@ handleBackButton() {
         
     }
 }
-
-   
-const styles=StyleSheet.create({
-    container:{
-      flex:1,
-        margin: 5,
-        backgroundColor : '#2f3542',
-        elevation : 1,
-        shadowColor : '#000',
-        shadowOffset : { width : 0 , height: 20},
-        shadowOpacity : .2,
-        
-    
-},
-image:{
-    width :'100%',
-    // marginLeft:13,
-    // marginRight:13,
-        height: 150,
-        marginTop:1,
-        borderRadius:8,
-      
-      
-},
-body:{
-  color:'white',
-  marginBottom:8,
-  fontSize:16,
-  marginLeft:5,
-  marginTop:5,
- 
-    
-},
-property:{
-    width : '100%',
-    height: 100,
-    backgroundColor:'#34495e',
-    borderRadius : 10,
-    borderWidth:1.8,
-    borderColor:'white',
-   
- 
-  },
-  text_pro:{
-    backgroundColor:'blue',
-    color:'white',
-    marginLeft:5,
-    padding:3,
-    marginTop:5,
-    borderRadius : 5,
-    borderColor:'white',
-    borderWidth:1,
-    padding:5
-  },
-  buttonView: {
-    width:250,
-    height:30,
-    // marginTop: 50,
-    backgroundColor:'gray',
-    paddingVertical: 10,
-    paddingHorizontal: 5,
-    borderRadius: 10,
-    alignItems: 'center',
-    borderWidth:1.3,
-    borderColor:'white',
-   
-    
-  },
-  reserve:{
-    width:300,
-    height:30,
-    marginTop: 5,
-    backgroundColor:'green',
-    paddingVertical: 10,
-    paddingHorizontal: 5,
-    borderRadius: 10,
-    alignItems: 'center',
-    borderWidth:1.3,
-    borderColor:'white',
-    marginLeft:10,
-    marginRight:10,
-   
-      
-  }
- 
-
-})

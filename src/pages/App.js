@@ -32,8 +32,8 @@ export default class App extends Component {
   >        
          <Scene key='lightboxMM'  lightbox>
     <Scene key='root' modal hideNavBar>
-    <Scene key='splash' component={splash} />
-    <Scene key='test' component={test} initial/>
+    <Scene key='splash' component={splash} initial/>
+    <Scene key='test' component={test} />
     <Scene key='login2' component={login2}/>
     <Scene key='register' component={register} />
     <Scene key='login' component={login}  />
